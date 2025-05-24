@@ -1,0 +1,68 @@
+<!-- chat.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Chat | SocialApp</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">SocialApp</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="status.html">Stories</a>
+      <a href="chat.html" class="active">Chat</a>
+      <div id="profile-button">
+        <a href="profile.html" class="btn-profile">
+          <img id="nav-profile-pic" src="images/default-profile.png" alt="Profile">
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="chat-container">
+    <div class="chat-sidebar">
+      <div class="chat-header">
+        <h2>Chats</h2>
+        <button id="new-chat-btn">+ New Chat</button>
+      </div>
+      <div class="chat-search">
+        <input type="text" placeholder="Search users...">
+      </div>
+      <div class="chat-list" id="chat-list">
+        <!-- Chats will be loaded here -->
+      </div>
+      <div class="online-users">
+        <h3>Online Now</h3>
+        <div class="online-list" id="online-list">
+          <!-- Online users will be loaded here -->
+        </div>
+      </div>
+    </div>
+    <div class="chat-main">
+      <div class="chat-messages" id="chat-messages">
+        <!-- Messages will be loaded here -->
+        <div class="empty-chat">
+          <p>Select a chat to start messaging</p>
+        </div>
+      </div>
+      <div class="chat-input" id="chat-input" style="display: none;">
+        <input type="text" placeholder="Type a message..." id="message-input">
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/chat.js"></script>
+  <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+</body>
+</html>

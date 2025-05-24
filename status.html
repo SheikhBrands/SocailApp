@@ -1,0 +1,85 @@
+<!-- status.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stories | SocialApp</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">SocialApp</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="status.html" class="active">Stories</a>
+      <a href="chat.html">Chat</a>
+      <div id="profile-button">
+        <a href="profile.html" class="btn-profile">
+          <img id="nav-profile-pic" src="images/default-profile.png" alt="Profile">
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="status-container">
+    <div class="status-upload">
+      <h2>Create a Story</h2>
+      <div class="upload-box" id="upload-box">
+        <div class="upload-prompt">
+          <input type="file" id="media-upload" accept="image/*,video/*" style="display: none;">
+          <label for="media-upload" class="upload-label">
+            <div class="upload-icon">+</div>
+            <p>Upload Photo or Video</p>
+          </label>
+        </div>
+        <div class="upload-preview" id="upload-preview" style="display: none;">
+          <div class="preview-media" id="preview-media"></div>
+          <div class="upload-actions">
+            <button class="btn btn-danger" id="cancel-upload">Cancel</button>
+            <button class="btn btn-primary" id="post-story">Post Story</button>
+          </div>
+        </div>
+      </div>
+      <div class="text-status">
+        <h3>Or create a text status</h3>
+        <textarea placeholder="What's on your mind?" id="status-text"></textarea>
+        <div class="text-actions">
+          <button class="btn btn-primary" id="post-text-status">Post Text Status</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="status-feed">
+      <h2>Stories from People You Follow</h2>
+      <div class="stories-list" id="stories-list">
+        <!-- Stories will be loaded here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Story Viewer Modal -->
+  <div class="story-viewer" id="story-viewer" style="display: none;">
+    <div class="story-viewer-content">
+      <div class="story-header">
+        <img id="story-user-avatar" src="images/default-profile.png" alt="User">
+        <span id="story-username"></span>
+        <span id="story-time"></span>
+        <button class="close-story" id="close-story">&times;</button>
+      </div>
+      <div class="story-media" id="story-media-container"></div>
+    </div>
+  </div>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cloudinary.js"></script>
+  <script src="js/status.js"></script>
+  <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+</body>
+</html>

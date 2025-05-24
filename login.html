@@ -1,0 +1,81 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | SocialApp</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">SocialApp</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="register.html" class="btn btn-outline">Register</a>
+    </div>
+  </nav>
+
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Login to Your Account</h2>
+      
+      <form id="login-form">
+        <div class="form-group">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </div>
+        <div class="auth-divider">
+          <span>OR</span>
+        </div>
+        <div class="form-group">
+          <button type="button" class="btn btn-google btn-block" id="google-login">
+            <img src="images/google-icon.png" alt="Google">
+            Continue with Google
+          </button>
+        </div>
+        <div class="auth-footer">
+          <p>Don't have an account? <a href="register.html">Register</a></p>
+          <p><a href="#">Forgot password?</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('login-form');
+      const googleLogin = document.getElementById('google-login');
+      
+      document.getElementById('login-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const email = document.getElementById('login-email').value;
+  const password = document.getElementById('login-password').value;
+  
+  login(email, password)
+    .then(() => {
+      window.location.href = 'profile.html';
+    })
+    .catch(error => {
+      console.error('Login error:', error);
+      alert('Login failed: ' + error.message);
+    });
+});
+    });
+  </script>
+  <!-- Add these in your HTML head or before your scripts -->
+<!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script> -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</body>
+</html>
